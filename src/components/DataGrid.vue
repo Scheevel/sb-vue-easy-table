@@ -7,9 +7,9 @@
       :show-vertical-border="false"
       :cell-edit-done="cellEditDone"
     ></v-table>
-    <span> {{msg}} </span>
+    <span> {{deep}} </span>
     </div
-></template>
+></template> 
 
 <script>
 import Vue from "vue";
