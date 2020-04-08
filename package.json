@@ -1,5 +1,5 @@
 {
-  "name": "vue-easy-table",
+  "name": "sb-vue-easy-table",
   "version": "0.1.0",
   "main": "src/main.js",
   "private": true,
@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
-    "vue": "^2.6.11",
+    "vue": "2.6.11",
     "vue-easytable": "1.7.2",
+    "vue-router": "3.1.6",
+    "vuetify": "2.2.21",
     "vuex": "3.1.3"
   },
   "devDependencies": {
