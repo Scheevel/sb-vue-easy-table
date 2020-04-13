@@ -4,6 +4,12 @@ import Vuetify from "vuetify";
 import VueRouter from 'vue-router';
 import { routes as routeList } from './routes';
 /*import store from "./store";*/
+import axios from "axios";
+Vue.prototype.$lp = {};
+Vue.prototype.$lp.$axios = axios;
+
+//import api from "./api";
+//Vue.prototype.$lp.$api = api;
 
 Vue.config.productionTip = false;
 Vue.use(Vuetify);
