@@ -1,3 +1,4 @@
+import axios from 'axios';
 const API_RESPONSE = {
   name: "Mika Whippet",
   email: "mika@mikathewhippet.com",
@@ -82,48 +83,40 @@ const API_ITEMS = [
   }
 ];
 
-export default {
-  /*
-  getUser() {
-    return new Promise((resolve, reject) => {
-      return resolve(API_RESPONSE);
-    });
-  },
-  updateUser(data) {
-    return new Promise((resolve, reject) => {
-      let user = API_RESPONSE;
-      Object.assign(user, data);
-      return resolve(user);
-    });
-  },
-  */
-  z_getItems: ()=> {
-    return {
-      "columns": API_COLUMNS,
-      "items": API_ITEMS
+const URL = 'https://my-json-server.typicode.com/scheevel/fakedata'
+const API = axios.create({
+  baseURL: URL
+})
+
+export const columns = {
+  get: params  => API.get('/demo', {params})
+    .then( response => {
+      return response.data.columns}) //works
     }
-  },
-  getItems() { /*$axios.get('https://my-json-server.typicode.com/scheevel/fakedata/demo')*/},
-  //z_getItems: params => axios.get('https://my-json-server.typicode.com/scheevel/fakedata', { params }),
-  /*
-  createItem: item => axios.post('/api/items', item),
-  test: () => {
-    var url = "https://my-json-server.typicode.com/scheevel/fakedata/items"
-    axios.get(url)
-      .then(response => {
-        console.log(response.data)
+
+export const items = {
+  get: params => API.get('/demo', {params})
+    .then( response => {
+      return response.data.items}), 
+  post: (data, params) => API.post('/demo/items', {data}, {params})
+};
+
+ export default{
+  GetResponse: () => API.get('/demo'),
+  //getColumns: params => API.get('/columns', params)
+
+  FullResponse(){  
+    axios.get(URL + '/demo')
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
       });
-  },*/
-    /*
-    const response = await setTimeout(() => {
-      return 
-      },2000);
-    return response;
-  },
-  columns: async () => {
-    const response  = setTimeout(() => {
-      return 
-      }, 1000);
-    return response;
-  }*/
+    }
 }

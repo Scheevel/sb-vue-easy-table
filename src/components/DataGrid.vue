@@ -15,7 +15,6 @@
 import Vue from "vue";
 import "vue-easytable/libs/themes-base/index.css";
 import { VTable, VPagination } from "vue-easytable";
-import api from '../api';
 //import api from '../api';
 /*remove*/
 
@@ -40,11 +39,8 @@ export default {
   methods: {
     async request() {
       this.isLoading = false;
-      var url = "https://my-json-server.typicode.com/scheevel/fakedata/demo"
-      const response = await this.$lp.$axios.get(url)
-      //const response = await api.getItems();
-      this.listColumns = response.data.columns;
-      this.listItems = response.data.items;
+      this.listColumns = await this.$lp.columns.get();
+      this.listItems = await this.$lp.items.get();
     },
     cellEditDone(newValue, oldValue, rowIndex, rowData, field) {
       this.listItems[rowIndex][field] = newValue;
