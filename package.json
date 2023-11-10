@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
-    "axios": "0.19.2",
+    "axios": "1.6.0",
     "q": "1.5.1",
     "vue": "2.6.11",
     "vue-easytable": "1.7.2",
